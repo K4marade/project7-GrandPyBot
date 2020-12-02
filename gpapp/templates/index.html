@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>GrandPy</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD30BzMMTGF6gPicXbbjFzv9gtvbC4eCA8&callback=initMap&region=FR&libraries=places&v=weekly">
+    </script>
+
+    <script src="{{ url_for('static', filename='js/googlemaps.js')}}"></script>
+
+    <link rel="stylesheet" type="text/css" href="./static/css/googlemaps.css" />
+    <script src="./static/css/googlemaps.js"></script>
+
     <style>
         .input--userText{
             width: 200px;
@@ -22,6 +32,15 @@
 
     <p id="response"></p>
 
+    <div id="map" class="map" style=""></div>
+
+    <div id="infowindow-content">
+        <span id="place-name" class="title"></span><br />
+        <strong>Place ID</strong>: <span id="place-id"></span><br />
+        <span id="place-address"></span>
+    </div>
+
     <script type="text/javascript" src="{{ url_for('static', filename='js/grandpy.js') }}"></script>
+    <script></script>
 </body>
 </html>
