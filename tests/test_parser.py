@@ -1,4 +1,3 @@
-import pytest
 from gpapp.utils.parser import Parser
 
 
@@ -7,24 +6,20 @@ class TestParser:
     Class that tests message parser
     """
 
-    # def setup_method(self, message):
-    #     # message = "Où se trouve la Tour Eiffel ?"
-    #     message = message
-    #     self.parser = Parser(message)
+    def setup_method(self):
+        self.parser = Parser()
 
     def test_parser(self):
         """
         test_parser method
         """
         message = "Où se trouve la Tour Eiffel ?"
-        assert Parser(message).process() == "tour eiffel"
+        assert self.parser.process(message) == "tour eiffel"
 
     def test_empty_string(self):
         message = " "
-        with pytest.raises(ValueError):
-            Parser(message).process()
+        assert self.parser.process(message) is not message
 
     def test_stop_words(self):
         message = "Ok mais quoi alors ? !"
-        with pytest.raises(ValueError):
-            Parser(message).process()
+        assert self.parser.process(message) is not message
