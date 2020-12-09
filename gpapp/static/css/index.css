@@ -1,0 +1,58 @@
+#git-logo {
+    margin-top: 15px;
+    size: auto;
+}
+div[role=main]{
+    flex: 1;
+}
+
+
+body{
+    background-size: auto;
+    background: url('../img/bg-pattern.png'), linear-gradient(to left, #7b4397, #dc2430);
+}
+
+#welcome-text{
+    margin-top: 30px;
+    text-align: left;
+    font-size: 30px;
+}
+
+#response{
+    margin-top: 40px    ;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 30px;
+    color: white;
+    font-family: Futura, sans-serif;
+    font-size: 20px;
+
+}
+
+#papy-img {
+    /*left: 60px;*/
+    margin-top: 70px;
+    margin-right: 10px;
+    position: relative;
+    max-height: 40px;
+   width: auto;
+
+}
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+    position: relative;
+    min-height: 200px;
+    max-height: 400px;
+    max-width: 600px;
+    margin: 35px auto 20px;
+}
+
+#user-text-form{
+    position: relative;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0   ;
+}
