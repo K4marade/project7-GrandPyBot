@@ -1,46 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Required meta tags -->
     <meta charset="UTF-8">
-    <title>GrandPy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static', filename = 'img/favicon-32x32.png')}}"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/bootstrap.css')}}" />
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/index.css')}}"/>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script defer
+    <script defer async
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD30BzMMTGF6gPicXbbjFzv9gtvbC4eCA8&callback=initMap&region=FR&libraries=places&v=weekly">
     </script>
 
-    <script src="{{ url_for('static', filename='js/googlemaps.js')}}"></script>
-
-    <link rel="stylesheet" type="text/css" href="./static/css/googlemaps.css" />
-    <script src="./static/css/googlemaps.js"></script>
-
-    <style>
-        .input--userText{
-            width: 200px;
-        }
-    </style>
+    <title>GrandPy</title>
 </head>
-<body>
-    <h1>Bienvenue sur GrandPy Bot !</h1>
 
-    <form id="user-text-form">
-        <p>
-            <label for="userText"></label>
-            <input type="text" id="userText" class="input--userText" name="userText" placeholder="Tapez votre nom">
-            <input type="submit" value="Envoyer">
-        </p>
-    </form>
+<main class="d-flex flex-column">
+    <header>
+        <div class="fixed-top">
+            <div class="container">
+                <div id="git-logo">
+                    <a href="https://github.com/K4marade/project7" onclick="window.open(this.href); return false;">
+                        <img src="{{url_for('static', filename = 'img/github-mini.png')}}" class="float-right" alt="Github">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main role="main">
+        <div class="container">
+             <div id="papy-block">
+                <div class="row">
+                    <div class="col-3">
+                        <figure class="figure">
+                            <div id="papy-img">
+                                <img src="{{url_for('static', filename = 'img/papy.png')}}" class="figure-img img-fluid rounded" alt="papy_robot">
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-7">
+                        <div id="response">
+                            <div id="welcome-text">
+                                <i>Bienvenue sur GrandPy Bot !</i> <br>
+                                Pose-moi une question sur un lieu <br>
+                                et j'essayerai de te raconter une anecdote dessus.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
 
-    <p id="response"></p>
+        <div class="container">
+            <div id="map" class="rounded mx-auto d-block"></div>
+        </div>
+        <div class="container">
+            <form id="user-text-form">
+                <div class="input-group input-group-sm mb-3 flex-nowrap">
+                        <label for="userText" class="visually-hidden"></label>
+                        <input type="text" class="form-control rounded-left" id="userText" name="userText" placeholder="Posez votre question">
+                        <span class="input-group-text" id="addon-wrapping">
+                            <button type="submit" class="btn btn-primary mb-3">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                            </svg>
+                            </button>
+                        </span>
+                </div>
+            </form>
+        </div>
+    </main>
+    <!-- GrandPy JS -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/grandpy.js')}}"></script>
 
-    <div id="map" class="map" style=""></div>
-
-    <div id="infowindow-content">
-        <span id="place-name" class="title"></span><br />
-        <strong>Place ID</strong>: <span id="place-id"></span><br />
-        <span id="place-address"></span>
-    </div>
-
-    <script type="text/javascript" src="{{ url_for('static', filename='js/grandpy.js') }}"></script>
-    <script></script>
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
 </body>
 </html>
