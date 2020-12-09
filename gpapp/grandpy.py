@@ -54,12 +54,15 @@ class GrandPy:
         #           round(info[3], 2) == round(int(self.answer['lng']), 2):
 
     def search_wiki(self, keywords):
-        page_id = self.wiki.get_page_id(keywords)
-        # Search for place's information
-        place_info = self.wiki.get_page_content(page_id)
-        result = [place_info]  # , lat, lon]
-        print(result)
-        return result
+        try:
+            page_id = self.wiki.get_page_id(keywords)
+            # Search for place's information
+            place_info = self.wiki.get_page_content(page_id)
+            result = [place_info]  # , lat, lon]
+            print(result)
+            return result
+        except TypeError:
+            return None
 
         # Search for place's coordinates to match with GoogleMaps
         # coordinates = self.wiki.get_coordinates(
