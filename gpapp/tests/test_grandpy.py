@@ -1,6 +1,4 @@
 from gpapp.grandpy import GrandPy
-from gpapp.utils.constants import *
-from random import choice
 
 
 class TestGranPy:
@@ -27,8 +25,17 @@ class TestGranPy:
         answer = self.grandpy.grandpy_answer(self.user_message)
         assert answer == self.answer
 
-    def test_search_google(self):
-        pass
-
     def test_search_wiki(self):
-        pass
+        keywords = "tour eiffel"
+        assert self.grandpy.search_wiki(keywords) == ["La tour Eiffel  est une tour de fer puddlé de 324 mètres de "
+                                                      "hauteur (avec antennes) "
+                                                      "située à Paris, à l’extrémité nord-ouest du parc du "
+                                                      "Champ-de-Mars en bordure "
+                                                      "de la Seine dans le 7e arrondissement. Son adresse officielle "
+                                                      "est 5, avenue Anatole-France."]
+
+    def test_search_google(self):
+        keywords = "tour eiffel"
+        assert self.grandpy.search_google(keywords) == ["Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France",
+                                                        48.85837009999999,
+                                                        2.2944813]

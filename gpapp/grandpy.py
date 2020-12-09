@@ -59,7 +59,6 @@ class GrandPy:
             # Search for place's information
             place_info = self.wiki.get_page_content(page_id)
             result = [place_info]  # , lat, lon]
-            print(result)
             return result
         except TypeError:
             return None
