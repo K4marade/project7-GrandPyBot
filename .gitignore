@@ -142,5 +142,5 @@ cython_debug/
 .DS_Store
 
 # API Keys
-gpapp/ApiKeys.json
+gpapp/api_keys.yaml
 gpapp/api_keys.py

@@ -10,6 +10,7 @@ requests = "*"
 flask = "*"
 nltk = "*"
 pytest = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.8"
