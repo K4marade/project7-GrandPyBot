@@ -1,6 +1,4 @@
-from typing import List
-
-from constants import STOP_WORDS, ADDITIONAL_STOP_WORDS, PUNCTUATION
+from gpapp.utils.constants import STOP_WORDS, ADDITIONAL_STOP_WORDS, PUNCTUATION
 
 
 class Parser:
@@ -8,6 +6,7 @@ class Parser:
 
     def __init__(self):
         """ Class constructor """
+        # self.process(message="")
         pass
 
     def process(self, message) -> str:
@@ -27,3 +26,7 @@ class Parser:
             return keywords
         except ValueError:
             return keywords
+
+
+# if __name__ == '__main__':
+#     Parser()
