@@ -1,6 +1,6 @@
 import requests
 
-from gpapp.utils.config import GOOGLE_API_KEY
+from config import GOOGLE_API_KEY
 
 
 class GoogleMapsApi:

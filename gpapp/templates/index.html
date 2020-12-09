@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/index.css')}}"/>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script defer async
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD30BzMMTGF6gPicXbbjFzv9gtvbC4eCA8&callback=initMap&region=FR&libraries=places&v=weekly">
+      src="https://maps.googleapis.com/maps/api/js?key={{ config['GOOGLE_API_KEY] }}&callback=initMap&region=FR&libraries=places&v=weekly">
     </script>
 
     <title>GrandPy</title>
