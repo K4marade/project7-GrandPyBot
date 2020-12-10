@@ -25,7 +25,7 @@ GRANPY_WRONG_QUESTION = [
     "Désolé jeune homme, il semblerait que les mots que tu utilises "
     "ne me permettent pas de trouver de résultat. "
     "Peux-tu reformuler ta question ?",
-    "Je ne suis un plus tout jeune tu sais, peux-tu reformuler "
+    "Je ne suis plus tout jeune tu sais, peux-tu reformuler "
     "ta question avec des mots plus clairs ?"
 ]
 

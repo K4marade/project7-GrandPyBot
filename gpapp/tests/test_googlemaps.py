@@ -5,16 +5,14 @@ class TestGoogleMaps:
 
     def setup_method(self):
         self.gmaps = GoogleMapsApi()
-        self.keywords = "tour eiffel"
 
     def test_http_result(self, monkeypatch):
+        # results = {'ok': 200,
+        #            'error': 404}
+
         results = {
             "candidates": [
-                {
-                    'formatted_address': 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France',
-                    'geometry': {'location': {'lat': 48.85837009999999,
-                                              'lng': 2.2944813}}
-                }
+                {'formatted_address': 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France'}
             ]
         }
 
@@ -28,7 +26,7 @@ class TestGoogleMaps:
             return MockRequestsResponse()
 
         monkeypatch.setattr('requests.get', mockreturn)
-        assert self.gmaps.get_place_location(self.keywords) == results['candidates'][0]
+        assert self.gmaps.get_place_location(keywords="tour eiffel") == results['candidates'][0]
 
 
         # class MockRequestsResponseWith404:
@@ -36,8 +34,7 @@ class TestGoogleMaps:
         #
         #
         # def mockreturn(url, params):
-        #     return MockRequestsResponseWith404
+        #     return MockRequestsResponseWith404()
         #
-        # self.keywords = ""
         # monkeypatch.setattr('requests.get', mockreturn)
-        # assert self.gmaps.get_place_location(self.keywords) ==
+        # assert self.gmaps.get_place_location(keywords="edzd;zed;ze;") == results['candidates'][0]

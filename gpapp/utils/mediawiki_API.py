@@ -23,7 +23,6 @@ class MediaWikiAPI:
 
             data = requests.get(url, params)
             response = data.json()['query']['search'][0]['pageid']
-            print(response)
             return response
         except IndexError:
             return None

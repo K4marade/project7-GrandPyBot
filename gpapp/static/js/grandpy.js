@@ -13,12 +13,10 @@ let element = document.getElementById("response");
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-    console.log(event);
 
          //Send form to server
         postFormData("/grandpy", new FormData(form))
             .then(response => {
-                console.log(response)
                 if (response.place_info === null && response.address !== null) {
                     element.innerHTML = response.no_wiki_info + response.address;
                     displayMap(response.lat, response.lng, 15);

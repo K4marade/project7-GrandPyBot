@@ -11,6 +11,8 @@ flask = "*"
 pytest = "*"
 pyyaml = "*"
 gunicorn = "*"
+stop-words = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.8"

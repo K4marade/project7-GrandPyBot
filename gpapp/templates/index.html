@@ -3,7 +3,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="{{url_for('static', filename = 'img/favicon-32x32.png')}}"/>
@@ -14,70 +14,65 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/index.css')}}"/>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script defer async
-      src="https://maps.googleapis.com/maps/api/js?key={{ config['GOOGLE_API_KEY] }}&callback=initMap&region=FR&libraries=places&v=weekly">
+      src="https://maps.googleapis.com/maps/api/js?key={{ config['GOOGLE_API_KEY'] }}&callback=initMap&region=FR&libraries=places&v=weekly">
     </script>
 
     <title>GrandPy</title>
 </head>
 
 
-<body class="d-flex flex-column">
+<body>
     <header>
-        <div class="fixed-top">
-            <div class="container">
-                <div id="git-logo">
-                    <a href="https://github.com/K4marade/project7" onclick="window.open(this.href); return false;">
-                        <img src="{{url_for('static', filename = 'img/github-mini.png')}}" class="float-right" alt="Github">
-                    </a>
+        <div class="container">
+            <div class="row">
+                <div id="papy-img" class="text-center col-md-3 text-md-left pl-md-5">
+                    <img class="mw-100" src="{{url_for('static', filename = 'img/papy.png')}}" alt="papy_robot">
+                </div>
+                <div id="welcome-text" class="text-center col-md-6 text-md-left">
+                    <h2>
+                      <i> Bienvenue sur GrandPy Bot ! </i>
+                    </h2>
                 </div>
             </div>
         </div>
     </header>
-    <main role="main">
-        <div class="container">
-             <div id="papy-block">
-                <div class="row">
-                    <div class="col-3">
-                        <figure class="figure">
-                            <div id="papy-img">
-                                <img src="{{url_for('static', filename = 'img/papy.png')}}" class="figure-img img-fluid rounded" alt="papy_robot">
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="col-7">
-                        <div id="response">
-                            <div id="welcome-text">
-                                <i>Bienvenue sur GrandPy Bot !</i> <br>
-                                Pose-moi une question sur un lieu <br>
-                                et j'essayerai de te raconter une anecdote dessus.
-                            </div>
-                        </div>
-                    </div>
+
+    <main class="container">
+
+        <div id ="response" class="text-center text-white mt-4 fs-md-5">
+            <p class="fs-6 fs-md-3 mt-4">Pose-moi une question sur un lieu
+                et j'essayerai de te raconter une anecdote dessus. </p>
+        </div>
+
+        <div id="map" class="rounded mx-auto mt-4"></div>
+
+        <div>
+            <form id="user-text-form" class="fixed-bottom" style="opacity: 0.8">
+                <div class="input-group input-group-sm mb-3 flex-nowrap">
+                    <label for="userText" class="visually-hidden"></label>
+                    <input type="text" class="form-control rounded-left" id="userText" name="userText" placeholder="Posez votre question">
+                    <span class="input-group-text" id="addon-wrapping">
+                        <button type="submit" class="btn btn-primary mb-3">
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                        </svg>
+                        </button>
+                    </span>
                 </div>
-             </div>
-        </div>
-
-        <div class="container">
-            <div id="map" class="rounded mx-auto d-block"></div>
-        </div>
-        <div class="container">
-
-                    <form id="user-text-form" class="position-sticky">
-                        <div class="input-group input-group-sm mb-3 flex-nowrap">
-                                <label for="userText" class="visually-hidden"></label>
-                                <input type="text" class="form-control rounded-left" id="userText" name="userText" placeholder="Posez votre question">
-                                <span class="input-group-text" id="addon-wrapping">
-                                    <button type="submit" class="btn btn-primary mb-3">
-                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
-                                    </svg>
-                                    </button>
-                                </span>
-                        </div>
-                    </form>
-
+            </form>
         </div>
     </main>
+
+
+    <footer>
+        <div id="site-footer" class="container text-right text-white my-5 py-md-5 ">
+            <a href="https://github.com/K4marade/project7" target="_blank">  <!--onclick="window.open(this.href); return false;"> -->
+                <img src="{{url_for('static', filename = 'img/github-mini.png')}}" alt="Github">
+                <span> © Léonard COLIN </span>
+            </a>
+        </div>
+    </footer>
+
     <!-- GrandPy JS -->
     <script type="text/javascript" src="{{ url_for('static', filename='js/grandpy.js')}}"></script>
 

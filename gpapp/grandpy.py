@@ -40,7 +40,6 @@ class GrandPy:
                 # Wikipedia :
                 info = self.search_wiki(keywords)
                 info = info[0]  # Intro text of the place
-                print(info)
                 if info is not None:
                     self.answer['place_info'] = info
                 else:
