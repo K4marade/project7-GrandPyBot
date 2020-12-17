@@ -25,10 +25,10 @@
     <header>
         <div class="container">
             <div class="row">
-                <div id="papy-img" class="text-center col-md-3 text-md-left pl-md-5">
+                <div id="papy-img" class="text-center col-md-2 text-md-left pr-md-0">
                     <img class="mw-100" src="{{url_for('static', filename = 'img/papy.png')}}" alt="papy_robot">
                 </div>
-                <div id="welcome-text" class="text-center col-md-6 text-md-left">
+                <div id="welcome-text" class="text-center col-md-6 text-md-left pl-md-0">
                     <h2>
                       <i> Bienvenue sur GrandPy Bot ! </i>
                     </h2>
@@ -38,24 +38,23 @@
     </header>
 
     <main class="container">
-
-        <div id ="response" class="text-center text-white mt-4 fs-md-5">
-            <p class="fs-6 fs-md-3 mt-4">Pose-moi une question sur un lieu
+        <div id ="response" class="text-center text-white mt-md-4 fs-md-5">
+            <p class="fs-6 fs-md-3 mt-md-4">Pose-moi une question sur un lieu
                 et j'essayerai de te raconter une anecdote dessus. </p>
         </div>
 
         <div id="map" class="rounded mx-auto mt-4"></div>
 
-        <div>
-            <form id="user-text-form" class="fixed-bottom" style="opacity: 0.8">
+        <div class="container">
+            <form id="user-text-form">
                 <div class="input-group input-group-sm mb-3 flex-nowrap">
                     <label for="userText" class="visually-hidden"></label>
                     <input type="text" class="form-control rounded-left" id="userText" name="userText" placeholder="Posez votre question">
                     <span class="input-group-text" id="addon-wrapping">
                         <button type="submit" class="btn btn-primary mb-3">
-                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
-                        </svg>
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                            </svg>
                         </button>
                     </span>
                 </div>
@@ -63,13 +62,12 @@
         </div>
     </main>
 
-
     <footer>
-        <div id="site-footer" class="container text-right text-white my-5 py-md-5 ">
-            <a href="https://github.com/K4marade/project7" target="_blank">  <!--onclick="window.open(this.href); return false;"> -->
-                <img src="{{url_for('static', filename = 'img/github-mini.png')}}" alt="Github">
-                <span> © Léonard COLIN </span>
-            </a>
+        <div class="container">
+                <a href="https://github.com/K4marade/project7" target="_blank">  <!--onclick="window.open(this.href); return false;"> -->
+                    <img src="{{url_for('static', filename = 'img/github-mini.png')}}" alt="Github">
+                    <span> © Léonard COLIN </span>
+                </a>
         </div>
     </footer>
 

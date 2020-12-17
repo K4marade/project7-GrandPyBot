@@ -1,8 +1,14 @@
+body, html{
+    height:100%;
+}
+
+
 body{
+    display: flex;
+    flex-direction: column;
     background-size: auto;
     background: url('../img/bg-pattern.png'), linear-gradient(to left, #7b4397, #dc2430);
 }
-
 
 img{
     max-height: 150px;
@@ -14,7 +20,10 @@ img{
     margin-bottom: auto;
     font-family: Futura, sans-serif;
     color: white;
+}
 
+main{
+    flex: 1 0 auto;
 }
 
 #response{
@@ -24,14 +33,12 @@ img{
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-
-
 }
 
 #map {
     /*min-height: 300px;*/
     /*max-height: 600px;*/
-    min-height: 200px;
+    height: 200px;
     max-width: 600px;
     align-items: center;
 }
@@ -40,19 +47,18 @@ img{
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 70px;
+    margin-top: 50px;
+    opacity: 0.85;
 }
 
-
-
-
-#site-footer{
-    /*margin-top: 70px;*/
+footer{
+    flex-shrink: 0;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    text-align: right;
 }
 
 a{
     text-decoration: none;
     color: white;
 }
-
-/*aligner vertical text form et footer*/
