@@ -21,12 +21,12 @@
 </head>
 
 
-<body>
+<body class="d-flex flex-column ">
     <header>
         <div class="container">
             <div class="row">
-                <div id="papy-img" class="text-center col-md-2 text-md-left pr-md-0">
-                    <img class="mw-100" src="{{url_for('static', filename = 'img/papy.png')}}" alt="papy_robot">
+                <div class="text-center col-md-2 text-md-left pr-md-0">
+                    <img id="papy-img"  class="mw-100" src="{{url_for('static', filename = 'img/papy.png')}}" alt="papy_robot">
                 </div>
                 <div id="welcome-text" class="text-center col-md-6 text-md-left pl-md-0">
                     <h2>
@@ -38,7 +38,7 @@
     </header>
 
     <main class="container">
-        <div id ="response" class="text-center text-white mt-md-4 fs-md-5">
+        <div id ="gp-response" class="text-left text-white mx-auto mt-md-4 fs-md-5">
             <p class="fs-6 fs-md-3 mt-md-4">Pose-moi une question sur un lieu
                 et j'essayerai de te raconter une anecdote dessus. </p>
         </div>
@@ -62,7 +62,7 @@
         </div>
     </main>
 
-    <footer>
+    <footer id="site-footer">
         <div class="container">
                 <a href="https://github.com/K4marade/project7" target="_blank">  <!--onclick="window.open(this.href); return false;"> -->
                     <img src="{{url_for('static', filename = 'img/github-mini.png')}}" alt="Github">

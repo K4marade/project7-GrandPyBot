@@ -4,9 +4,6 @@ import requests
 class MediaWikiAPI:
 
     def __init__(self):
-        # self.get_page_id(keywords="tour eiffel")
-        # self.get_page_content(page_id="1359783")
-        # self.get_coordinates(page_id="1359783")
         pass
 
     def get_page_id(self, keywords):

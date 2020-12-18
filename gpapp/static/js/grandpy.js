@@ -8,29 +8,35 @@ function postFormData(url, data) {
     .then(response => response.json())
     .catch(error => console.log(error));
 }
-
-let element = document.getElementById("response");
+function addElement (data) {
+    let tag = document.createElement("p");
+    // let line = document.createElement("br")
+    let text = document.createTextNode(data);
+    tag.appendChild(text);
+    let element = document.getElementById("gp-response");
+    element.appendChild(tag)
+}
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-
          //Send form to server
         postFormData("/grandpy", new FormData(form))
             .then(response => {
                 if (response.place_info === null && response.address !== null) {
-                    element.innerHTML = response.no_wiki_info + response.address;
+                    dataElement =
+                    addElement(response.no_wiki_info);
+                    addElement(response.address);
                     displayMap(response.lat, response.lng, 15);
                 } else if (response.place_info === null && response.address === null) {
-                   element.innerHTML = response.wrong_question;
+                    addElement(response.wrong_question);
                 } else {
-                    element.innerHTML = response.first_answer + "<br>"
-                        + response.address + "<br>" + "<br>"
-                        + response.second_answer + "<br>"
-                        + response.place_info;
+                    addElement(response.first_answer);
+                    addElement(response.address);
+                    addElement(response.second_answer);
+                    addElement(response.place_info);
                     displayMap(response.lat, response.lng, 15)
                 }
             })
-
 })
 
 // Initialize Google Maps
