@@ -26,14 +26,17 @@ main{
     flex: 1 0 auto;
 }
 
-#gp-response{
-    /*text-align: justify;*/
-    /*text-justify: inter-word;*/
+.gp-text{
     font-family: Futura, sans-serif;
     max-width: 600px;
 }
 
-#map {
+#gp-intro{
+    font-family: Futura, sans-serif;
+    max-width: 600px;
+}
+
+.gpmap {
     min-height: 300px;
     max-height: 600px;
     /*height: 200px;*/
@@ -41,10 +44,10 @@ main{
 }
 
 #user-text-form{
-    max-width: 800px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 80px;
     opacity: 0.85;
 }
 

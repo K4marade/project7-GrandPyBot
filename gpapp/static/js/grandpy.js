@@ -1,5 +1,3 @@
-let form = document.querySelector("#user-text-form");
-
 function postFormData(url, data) {
     return fetch(url, {
         method: "POST",
@@ -8,43 +6,26 @@ function postFormData(url, data) {
     .then(response => response.json())
     .catch(error => console.log(error));
 }
+
+const gpResponseEl = document.getElementById("gp-response");
+
 function addElement (data) {
     let tag = document.createElement("p");
-    // let line = document.createElement("br")
+    tag.setAttribute("class", "gp-text text-center text-md-left mt-3 text-white mx-auto mt-md-4 fs-md-5")
     let text = document.createTextNode(data);
     tag.appendChild(text);
-    let element = document.getElementById("gp-response");
-    element.appendChild(tag)
+    gpResponseEl.appendChild(tag)
 }
-
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
-         //Send form to server
-        postFormData("/grandpy", new FormData(form))
-            .then(response => {
-                if (response.place_info === null && response.address !== null) {
-                    dataElement =
-                    addElement(response.no_wiki_info);
-                    addElement(response.address);
-                    displayMap(response.lat, response.lng, 15);
-                } else if (response.place_info === null && response.address === null) {
-                    addElement(response.wrong_question);
-                } else {
-                    addElement(response.first_answer);
-                    addElement(response.address);
-                    addElement(response.second_answer);
-                    addElement(response.place_info);
-                    displayMap(response.lat, response.lng, 15)
-                }
-            })
-})
 
 // Initialize Google Maps
 function initMap(){}
 
 function displayMap(lat, lng, zoom) {
-    const location = {lat: lat, lng: +lng};
-    const map = new google.maps.Map(document.getElementById("map"), {
+    const gmaps = document.createElement("div");
+    gmaps.setAttribute("class", "gpmap rounded mx-auto mt-4")
+    gpResponseEl.appendChild(gmaps);
+    const location = {lat: lat, lng: lng};
+    const map = new google.maps.Map(gmaps, {
         center: location,
         zoom: zoom,
     });
@@ -56,3 +37,28 @@ function displayMap(lat, lng, zoom) {
         });
     }
 }
+
+const formEl = document.querySelector("#user-text-form");
+
+formEl.addEventListener("submit", function (event) {
+    const userInput = new FormData(event.target)
+    addElement(userInput.get("userText"))
+    event.preventDefault();
+         //Send form to server
+        postFormData("/grandpy", userInput)
+            .then(response => {
+                if (response.place_info === null && response.address !== null) {
+                    addElement(response.no_wiki_info);
+                    addElement(response.address);
+                    displayMap(response.lat, response.lng, 14);
+                } else if (response.place_info === null && response.address === null) {
+                    addElement(response.wrong_question);
+                } else {
+                    addElement(response.first_answer);
+                    addElement(response.address);
+                    addElement(response.second_answer);
+                    addElement(response.place_info);
+                    displayMap(response.lat, response.lng, 14);
+                }
+            })
+})
