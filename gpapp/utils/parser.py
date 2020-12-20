@@ -6,10 +6,9 @@ class Parser:
 
     def __init__(self):
         """ Class constructor """
-        # self.process(message="")
         pass
 
-    def process(self, message) -> str:
+    def process(self, message: str) -> str:
         """ Method that returns only meaningful words from the user's sentence """
         keywords = []
         try:
@@ -22,11 +21,6 @@ class Parser:
                 if word not in STOP_WORDS and word not in ADDITIONAL_STOP_WORDS:
                     keywords.append(word)
             keywords = " ".join(keywords)
-            print(keywords)
             return keywords
         except ValueError:
             return keywords
-
-
-# if __name__ == '__main__':
-#     Parser()

@@ -8,7 +8,7 @@ class GoogleMapsApi:
     def __init__(self):
         pass
 
-    def get_place_location(self, keywords):
+    def get_place_location(self, keywords: str):
         try:
             url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
             params = {

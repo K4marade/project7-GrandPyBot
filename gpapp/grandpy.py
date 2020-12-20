@@ -23,7 +23,7 @@ class GrandPy:
                             "l'adresse : "
         }
 
-    def grandpy_answer(self, user_message):
+    def grandpy_answer(self, user_message: str) -> dict:
 
         try:
             keywords = self.parser.process(user_message)
@@ -52,7 +52,7 @@ class GrandPy:
         #       if round(info[2], 2) == round(int(self.answer['lat']), 2) and \
         #           round(info[3], 2) == round(int(self.answer['lng']), 2):
 
-    def search_wiki(self, keywords):
+    def search_wiki(self, keywords: str):
         try:
             page_id = self.wiki.get_page_id(keywords)
             # Search for place's information
@@ -62,13 +62,7 @@ class GrandPy:
         except TypeError:
             return None
 
-        # Search for place's coordinates to match with GoogleMaps
-        # coordinates = self.wiki.get_coordinates(
-        #     page_id)
-        # lat = coordinates['lat']
-        # lon = coordinates['lon']
-
-    def search_google(self, keywords):
+    def search_google(self, keywords: str):
 
         try:
             place_location = self.gmaps.get_place_location(keywords)

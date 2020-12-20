@@ -7,13 +7,8 @@ class TestGoogleMaps:
         self.gmaps = GoogleMapsApi()
 
     def test_http_result(self, monkeypatch):
-        # results = {'ok': 200,
-        #            'error': 404}
-
         results = {
-            "candidates": [
-                {'formatted_address': 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France'}
-            ]
+            "candidates": [list]
         }
 
         class MockRequestsResponse:
@@ -27,7 +22,6 @@ class TestGoogleMaps:
 
         monkeypatch.setattr('requests.get', mockreturn)
         assert self.gmaps.get_place_location(keywords="tour eiffel") == results['candidates'][0]
-
 
         # class MockRequestsResponseWith404:
         #     status_code = 404

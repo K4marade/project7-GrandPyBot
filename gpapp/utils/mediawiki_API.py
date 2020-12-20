@@ -6,7 +6,7 @@ class MediaWikiAPI:
     def __init__(self):
         pass
 
-    def get_page_id(self, keywords):
+    def get_page_id(self, keywords: str):
         try:
             url = "https://fr.wikipedia.org/w/api.php"
             params = {
@@ -24,7 +24,7 @@ class MediaWikiAPI:
         except IndexError:
             return None
 
-    def get_page_content(self, page_id):
+    def get_page_content(self, page_id: int):
 
         try:
             page_id = str(page_id)
@@ -45,20 +45,3 @@ class MediaWikiAPI:
             return response
         except KeyError:
             return None
-
-    # def get_coordinates(self, page_id):
-    #     page_id = str(page_id)
-    #     url = "https://fr.wikipedia.org/w/api.php"
-    #     params = {
-    #         "action": "query",
-    #         "pageids": page_id,
-    #         "prop": "coordinates",
-    #         "format": "json"
-    #     }
-    #
-    #     data = requests.get(url, params)
-    #     response = data.json()['query']['pages'][page_id]['coordinates'][0]
-    #     return response
-
-# if __name__ == '__main__':
-#     MediaWikiAPI()

@@ -2,17 +2,9 @@ body, html{
     height:100%;
 }
 
-
 body{
-    /*display: flex;*/
-    /*flex-direction: column;*/
     background-size: auto;
     background: url('../img/bg-pattern.png'), linear-gradient(to left, #7b4397, #dc2430);
-}
-
-#papy-img{
-    /*max-height: 150px;*/
-    /*padding-left: 40px;*/
 }
 
 #welcome-text{
@@ -39,7 +31,6 @@ main{
 .gpmap {
     min-height: 300px;
     max-height: 600px;
-    /*height: 200px;*/
     max-width: 800px;
 }
 
