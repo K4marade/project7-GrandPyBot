@@ -2,12 +2,17 @@ from gpapp.utils.mediawiki_API import MediaWikiAPI
 
 
 class TestMediaWiki:
+    """Class that tests Media Wiki API"""
 
     def setup_method(self):
+        """Method that sets test parameters"""
+
         self.wiki = MediaWikiAPI()
         self.keywords = "tour eiffel"
 
     def test_pageid_results(self, monkeypatch):
+        """Page ID test result"""
+
         page_id = {'query': {
             'search': [{
                 'pageid': 1359783
@@ -27,6 +32,8 @@ class TestMediaWiki:
         assert self.wiki.get_page_id(self.keywords) == page_id['query']['search'][0]['pageid']
 
     def test_content_results(self, monkeypatch):
+        """Content test result from page id"""
+
         content = {'query': {
             'pages': {
                 '1359783': {'extract': str

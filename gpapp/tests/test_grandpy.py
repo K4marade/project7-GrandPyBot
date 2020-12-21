@@ -2,8 +2,11 @@ from gpapp.grandpy import GrandPy
 
 
 class TestGranPy:
+    """Class that tests GrandPy returned answer"""
 
     def setup_method(self):
+        """Test setup method"""
+
         self.grandpy = GrandPy()
         self.user_message = "Peux-tu me dire où se trouve la Tour Eiffel ?"
         self.answer = {
@@ -22,10 +25,14 @@ class TestGranPy:
         }
 
     def test_grandpy_answer(self):
+        """Tests the returned answer of Grandpy according to user's input"""
+
         answer = self.grandpy.grandpy_answer(self.user_message)
         assert answer == self.answer
 
     def test_search_wiki(self):
+        """Tests the returned result of the Wiki API"""
+
         keywords = "tour eiffel"
         assert self.grandpy.search_wiki(keywords) == ["La tour Eiffel  est une tour de fer puddlé de 324 mètres de "
                                                       "hauteur (avec antennes) "
@@ -35,6 +42,8 @@ class TestGranPy:
                                                       "est 5, avenue Anatole-France."]
 
     def test_search_google(self):
+        """Tests the returned result of the Google Maps API"""
+
         keywords = "tour eiffel"
         assert self.grandpy.search_google(keywords) == ["Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France",
                                                         48.85837009999999,

@@ -6,8 +6,15 @@ from gpapp.utils.googlemaps_API import GoogleMapsApi as Gmaps
 
 
 class GrandPy:
+    """
+    Class that defines Grandpy's Answer using data
+    from Google Maps and Media Wiki API's
+    """
 
     def __init__(self):
+        """
+        Class constructor with GrandPy's preset data and answers in a dictionary
+        """
         self.parser = Parser()
         self.wiki = Wiki()
         self.gmaps = Gmaps()
@@ -24,6 +31,10 @@ class GrandPy:
         }
 
     def grandpy_answer(self, user_message: str) -> dict:
+        """
+        Method that sets new values to GrandPy's dictionary to return one of GrandPy's answer
+        with possible place's information and location according to parsed user's input
+        """
 
         try:
             keywords = self.parser.process(user_message)
@@ -32,8 +43,8 @@ class GrandPy:
                 address = self.search_google(keywords)
                 for data in address:
                     if data is not None:
-                        self.answer['address'] = address[0]  # Place's address
-                        self.answer['lat'] = address[1]  #
+                        self.answer['address'] = address[0]
+                        self.answer['lat'] = address[1]
                         self.answer['lng'] = address[2]
                     else:
                         return self.answer
@@ -48,28 +59,32 @@ class GrandPy:
         except TypeError:
             return self.answer
 
-        # if coordinates from wiki and gmaps are equals :
-        #       if round(info[2], 2) == round(int(self.answer['lat']), 2) and \
-        #           round(info[3], 2) == round(int(self.answer['lng']), 2):
-
     def search_wiki(self, keywords: str):
+        """
+        Method that returns a possible list with place information from Wikipedia
+        according to user's input
+        """
+
         try:
-            page_id = self.wiki.get_page_id(keywords)
-            # Search for place's information
-            place_info = self.wiki.get_page_content(page_id)
-            result = [place_info]  # , lat, lon]
+            page_id = self.wiki.get_page_id(keywords)  # Place's page ID
+            place_info = self.wiki.get_page_content(page_id)  # Place's intro information
+            result = [place_info]
             return result
         except TypeError:
             return None
 
     def search_google(self, keywords: str):
+        """
+        Method that returns a possible list with place's location with the address,
+        latitude and longitude, according to user's input
+        """
 
         try:
             place_location = self.gmaps.get_place_location(keywords)
-            address = place_location['formatted_address']
+            address = place_location['formatted_address']  # Place's address
             coordinates = place_location['geometry']['location']
-            lat = coordinates['lat']
-            lng = coordinates['lng']
+            lat = coordinates['lat']  # Place's latitude
+            lng = coordinates['lng']  # Place's longitude
             result = [address, lat, lng]
             return result
         except TypeError:

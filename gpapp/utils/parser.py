@@ -2,14 +2,15 @@ from gpapp.utils.constants import STOP_WORDS, ADDITIONAL_STOP_WORDS, PUNCTUATION
 
 
 class Parser:
-    """ Class that ..."""
+    """Class that defines application's parser"""
 
     def __init__(self):
         """ Class constructor """
         pass
 
     def process(self, message: str) -> str:
-        """ Method that returns only meaningful words from the user's sentence """
+        """ Method that returns a string with only meaningful words from the user's input """
+
         keywords = []
         try:
             message = message.lower()

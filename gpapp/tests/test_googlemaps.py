@@ -4,9 +4,13 @@ from gpapp.utils.googlemaps_API import GoogleMapsApi
 class TestGoogleMaps:
 
     def setup_method(self):
+        """test setup method"""
+
         self.gmaps = GoogleMapsApi()
 
-    def test_http_result(self, monkeypatch):
+    def test_API_result(self, monkeypatch):
+        """test the result of a query to Google Maps API"""
+
         results = {
             "candidates": [list]
         }
