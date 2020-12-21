@@ -3,7 +3,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="{{url_for('static', filename = 'img/favicon-32x32.png')}}"/>
@@ -74,9 +74,9 @@
     </footer>
 
     <!-- GrandPy JS -->
-    <script type="text/javascript" src="{{ url_for('static', filename='js/grandpy.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/grandpy.js')}}"></script>
 
     <!-- Bootstrap JS -->
-    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
 </body>
 </html>
