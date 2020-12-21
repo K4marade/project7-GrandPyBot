@@ -1,7 +1,8 @@
 from stop_words import get_stop_words
 
 STOP_WORDS = get_stop_words('french')
-ADDITIONAL_STOP_WORDS = ["la", "dis", "", "ok", "quoi", "bonjour", "grandpy", "salut", "peux",
+ADDITIONAL_STOP_WORDS = ["la", "dis", "", "ok", "quoi", "bonjour",
+                         "grandpy", "salut", "peux",
                          "dire", "où", "salut,", "salut",
                          "grandpy", "grandpy,",
                          "trouve"]
@@ -16,7 +17,8 @@ GRANDPY_FIRST_ANSWER = [
 ]
 
 GRANDPY_SECOND_ANSWER = [
-    "Mais t'ai-je déjà raconté l'histoire de ce quartier qui m'a vu en culottes courtes ?",
+    "Mais t'ai-je déjà raconté l'histoire "
+    "de ce quartier qui m'a vu en culottes courtes ?",
     "Le savais-tu ?",
     "Hmm.. Cela me rappelle quelque chose... Ah oui !"
 ]
@@ -28,4 +30,3 @@ GRANPY_WRONG_QUESTION = [
     "Je ne suis plus tout jeune tu sais, peux-tu reformuler "
     "ta question avec des mots plus clairs ?"
 ]
-

@@ -29,7 +29,8 @@ class TestMediaWiki:
             return MockRequestsResponse()
 
         monkeypatch.setattr('requests.get', mockreturn)
-        assert self.wiki.get_page_id(self.keywords) == page_id['query']['search'][0]['pageid']
+        assert self.wiki.get_page_id(
+            self.keywords) == page_id['query']['search'][0]['pageid']
 
     def test_content_results(self, monkeypatch):
         """Content test result from page id"""
@@ -51,5 +52,5 @@ class TestMediaWiki:
             return MockRequestsResponse()
 
         monkeypatch.setattr('requests.get', mockreturn)
-        assert self.wiki.get_page_content(1359783) == content['query']['pages']['1359783']['extract']
-
+        assert self.wiki.get_page_content(
+            1359783) == content['query']['pages']['1359783']['extract']

@@ -20,7 +20,8 @@ class GoogleMapsApi:
         """
 
         try:
-            url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
+            url = "https://maps.googleapis.com/maps/api/" \
+                  "place/findplacefromtext/json"
             params = {
                 "inputtype": "textquery",
                 "input": keywords,

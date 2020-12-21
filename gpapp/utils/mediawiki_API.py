@@ -35,7 +35,8 @@ class MediaWikiAPI:
 
     def get_page_content(self, page_id: int):
         """
-        Method that gets place's intro information from the API using its page ID
+        Method that gets place's intro information
+        from the API using its page ID
         """
 
         try:
