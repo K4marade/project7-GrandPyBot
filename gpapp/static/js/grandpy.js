@@ -41,24 +41,24 @@ function displayMap(lat, lng, zoom) {
 const formEl = document.querySelector("#user-text-form");
 
 formEl.addEventListener("submit", function (event) {
-    const userInput = new FormData(event.target)
-    addElement(userInput.get("userText"))
+    const userInput = new FormData(event.target);
+    addElement(userInput.get("userText"));
     event.preventDefault();
-         //Send form to server
-        postFormData("/grandpy", userInput)
-            .then(response => {
-                if (response.place_info === null && response.address !== null) {
-                    addElement(response.no_wiki_info);
-                    addElement(response.address);
-                    displayMap(response.lat, response.lng, 14);
-                } else if (response.place_info === null && response.address === null) {
-                    addElement(response.wrong_question);
-                } else {
-                    addElement(response.first_answer);
-                    addElement(response.address);
-                    addElement(response.second_answer);
-                    addElement(response.place_info);
-                    displayMap(response.lat, response.lng, 14);
-                }
-            })
-})
+    //Send form to server
+    postFormData("/grandpy", userInput)
+        .then(response => {
+            if (response.place_info === null && response.address !== null) {
+                addElement(response.no_wiki_info);
+                addElement(response.address);
+                displayMap(response.lat, response.lng, 14);
+            } else if (response.place_info === null && response.address === null) {
+                addElement(response.wrong_question);
+            } else {
+                addElement(response.first_answer);
+                addElement(response.address);
+                addElement(response.second_answer);
+                addElement(response.place_info);
+                displayMap(response.lat, response.lng, 14);
+            }
+        });
+});

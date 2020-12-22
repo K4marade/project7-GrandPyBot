@@ -8,7 +8,6 @@ class TestGranPy:
         """Test setup method"""
 
         self.grandpy = GrandPy()
-        self.user_message = "Peux-tu me dire où se trouve la Tour Eiffel ?"
         self.answer = {
             'first_answer': self.grandpy.answer['first_answer'],
             'second_answer': self.grandpy.answer['second_answer'],
@@ -27,20 +26,24 @@ class TestGranPy:
 
             'no_wiki_info': "Désolé mon petit, je n'ai pas réussi "
                             "à trouver d'informations sur ce lieu mais voici "
-                            "l'adresse : "
+                            "l'adresse : ",
         }
 
     def test_grandpy_answer(self):
         """Tests the returned answer of Grandpy according to user's input"""
 
-        answer = self.grandpy.grandpy_answer(self.user_message)
-        assert answer == self.answer
+        answer_ok = self.grandpy.grandpy_answer(
+            user_message="Peux-tu me dire où se trouve la Tour Eiffel ?")
+        assert answer_ok == self.answer
+
+        # No info received from API's
+        answer_ko = self.grandpy.grandpy_answer(user_message="=;@=:@;=@;@:=;@")
+        assert answer_ko == self.answer
 
     def test_search_wiki(self):
         """Tests the returned result of the Wiki API"""
 
-        keywords = "tour eiffel"
-        assert self.grandpy.search_wiki(keywords) == [
+        assert self.grandpy.search_wiki(keywords="tour eiffel") == [
             "La tour Eiffel  est une tour de fer puddlé de 324 mètres de "
             "hauteur (avec antennes) "
             "située à Paris, à l’extrémité nord-ouest du parc du "
@@ -48,13 +51,15 @@ class TestGranPy:
             "de la Seine dans le 7e arrondissement. Son adresse officielle "
             "est 5, avenue Anatole-France."
         ]
+        assert self.grandpy.search_wiki(
+            keywords=":;,:;@,@:;,@@@") is not self.answer
 
     def test_search_google(self):
         """Tests the returned result of the Google Maps API"""
 
-        keywords = "tour eiffel"
-        assert self.grandpy.search_google(keywords) == [
+        assert self.grandpy.search_google(keywords="tour eiffel") == [
             "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France",
             48.85837009999999,
             2.2944813
         ]
+        assert self.grandpy.search_google(keywords=":;,:;@,@:;,@@@") is None

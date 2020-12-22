@@ -1,14 +1,15 @@
 from stop_words import get_stop_words
 
 STOP_WORDS = get_stop_words('french')
-ADDITIONAL_STOP_WORDS = ["la", "dis", "", "ok", "quoi", "bonjour",
+ADDITIONAL_STOP_WORDS = ["situe", "sais", "donner", "adresse", "hello", "la",
+                         "dis", "", "ok", "quoi", "bonjour",
                          "grandpy", "salut", "peux",
                          "dire", "où", "salut,", "salut",
                          "grandpy", "grandpy,",
                          "trouve"]
 PUNCTUATION = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")",
                "[", "]", "{", "}", ";", ":", ",", ".", "/", "<",
-               ">", "?", "|", "`", "~", "-", "=", "_", "+", "§"]
+               ">", "?", "|", "`", "~", "-", "=", "_", "+", "§", "'"]
 
 GRANDPY_FIRST_ANSWER = [
     "Bien sûr mon poussin ! Voici l'adresse :",
